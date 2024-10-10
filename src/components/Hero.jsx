@@ -15,20 +15,16 @@ const Hero = () => {
   const typewriterRef = useRef(null);
 
   useEffect(() => {
-    console.log('Hero component mounted');
     const timer = setTimeout(() => {
-      console.log('Preloader fade out started');
       gsap.to('.preloader', {
         opacity: 0,
         duration: 1,
         ease: 'power2.out',
         onComplete: () => {
-          console.log('Preloader fade out completed');
           setIsLoading(false);
         },
       });
 
-      console.log('Animating heading');
       gsap.fromTo(
         headingRef.current,
         { opacity: 0, y: -50 },
@@ -50,6 +46,7 @@ const Hero = () => {
       let phraseIndex = 0;
       let isDeleting = false;
       let charIndex = 0;
+      
 
       function typePhrase() {
         const currentPhrase = phrases[phraseIndex];
@@ -77,13 +74,11 @@ const Hero = () => {
     }, 2000);
 
     return () => {
-      console.log('Hero component unmounted, clearing timer');
       clearTimeout(timer);
     };
   }, []);
 
   if (isLoading) {
-    console.log('Preloader is visible');
     return (
       <div className="preloader h-screen w-screen flex items-center justify-center bg-white">
         <img src={gifSrc} alt="Loading..." className="w-16 h-16" />
@@ -91,11 +86,10 @@ const Hero = () => {
     );
   }
 
-  console.log('Hero content is now visible');
   return (
     <>
       <FloatingHeader />
-      <section className="hero-section h-screen w-screen flex items-center justify-center bg-gray-900 text-white text-center relative overflow-hidden">
+      <section className="hero-section h-screen w-full max-w-screen overflow-hidden flex items-center justify-center bg-gray-900 text-white text-center relative" style={{ overflow: 'hidden' }}>
         <video
           className="absolute top-0 left-0 w-full h-full object-cover"
           src={videoSrc}
@@ -106,15 +100,15 @@ const Hero = () => {
         />
         <div className="absolute top-0 left-0 w-full h-full bg-opacity-90 z-1"></div>
         <div className="absolute top-1/2 left-[10%] transform -translate-y-1/2 z-50 flex flex-col items-start justify-center">
-          <h1 ref={headingRef} className="hero-heading text-2xl md:text-6xl font-bold text-white mb-6 md:mb-8">
+          <h1 ref={headingRef} className="hero-heading text-2xl sm:text-4xl md:text-6xl font-bold text-white mb-6 md:mb-8">
             <span className="text-white">LunarEdge </span>
             <span ref={typewriterRef} className="text-blue-300"></span>
           </h1>
           <div className="flex gap-4">
-            <button className="px-6 py-3 bg-purple-600 text-base md:text-lg font-semibold rounded-full hover:bg-purple-800 transition duration-300 ease-in-out flex items-center gap-2">
+            <button className="px-4 py-2 sm:px-6 sm:py-3 bg-purple-600 text-sm sm:text-base md:text-lg font-semibold rounded-full hover:bg-purple-800 transition duration-300 ease-in-out flex items-center gap-2">
               Get a Demo <span className="text-xl">&rarr;</span>
             </button>
-            <button className="px-6 py-3 border border-purple-600 text-base md:text-lg font-semibold rounded-full hover:bg-purple-800 hover:text-white transition duration-300 ease-in-out">
+            <button className="px-4 py-2 sm:px-6 sm:py-3 border border-purple-600 text-sm sm:text-base md:text-lg font-semibold rounded-full hover:bg-purple-800 hover:text-white transition duration-300 ease-in-out">
               Learn more
             </button>
           </div>
@@ -124,28 +118,30 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="features-section py-10 bg-gray-100 text-gray-900">
+      <section className="features-section py-10 bg-gray-100 text-gray-900 overflow-hidden w-full max-w-screen">
         <div className="container mx-auto px-6 md:px-12">
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">Our Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="relative">
-              <video src={featureVideo1} alt="Feature One" className="w-full h-64 object-cover rounded-lg shadow-md" autoPlay loop muted />
+              <video src={featureVideo1} alt="Feature One" className="w-full h-64 object-cover rounded-lg shadow-md md:h-80 lg:h-96 opa backdrop-blur-md" autoPlay loop muted />
               <h3 className="absolute top-4 right-4 bg-black bg-opacity-25 text-gray-900 text-lg font-semibold p-2 rounded">Software Solutions</h3>
               <p className="absolute bottom-4 left-4 bg-black bg-opacity-25 text-gray-900 text-sm p-2 rounded">We offer state-of-the-art solutions to help you transform your ideas into reality with ease and efficiency.</p>
             </div>
             <div className="relative">
-              <video src={featureVideo2} alt="Feature Two" className="w-full h-64 object-cover rounded-lg shadow-md" autoPlay loop muted />
-              <h3 className="absolute top-4 right-4 bg-black bg-opacity-25 text-gray-900 text-lg font-semibold p-2 rounded">App Devlopment</h3>
+              <video src={featureVideo2} alt="Feature Two" className="w-full h-64 object-cover rounded-lg shadow-md md:h-80 lg:h-96" autoPlay loop muted />
+              <h3 className="absolute top-4 right-4 bg-black bg-opacity-25 text-gray-900 text-lg font-semibold p-2 rounded">App Development</h3>
               <p className="absolute bottom-4 left-4 bg-black bg-opacity-25 text-gray-900 text-sm p-2 rounded">Our team is committed to delivering the highest quality service, tailored to meet your specific business needs.</p>
             </div>
+
+            
             <div className="relative">
-              <video src={featureVideo3} alt="Feature Three" className="w-full h-64 object-cover rounded-lg shadow-md" autoPlay loop muted />
-              <h3 className="absolute top-4 right-4 bg-black bg-opacity-25 text-gray-900 text-lg font-semibold p-2 rounded">Website devlopment</h3>
+              <video src={featureVideo3} alt="Feature Three" className="w-full h-64 object-cover rounded-lg shadow-md md:h-80 lg:h-96" autoPlay loop muted />
+              <h3 className="absolute top-4 right-4 bg-black bg-opacity-25 text-gray-900 text-lg font-semibold p-2 rounded">Website Development</h3>
               <p className="absolute bottom-4 left-4 bg-black bg-opacity-25 text-gray-900 text-sm p-2 rounded">We provide innovative and scalable solutions that help your business stay ahead in a rapidly evolving market.</p>
             </div>
             <div className="relative">
-              <video src={featureVideo4} alt="Feature Four" className="w-full h-64 object-cover rounded-lg shadow-md" autoPlay loop muted />
-              <h3 className="absolute top-4 right-4 bg-black bg-opacity-25 text-gray-900 text-lg font-semibold p-2 rounded">Cyber security</h3>
+              <video src={featureVideo4} alt="Feature Four" className="w-full h-64 object-cover rounded-lg shadow-md md:h-80 lg:h-96" autoPlay loop muted />
+              <h3 className="absolute top-4 right-4 bg-black bg-opacity-25 text-gray-900 text-lg font-semibold p-2 rounded">Cyber Security</h3>
               <p className="absolute bottom-4 left-4 bg-black bg-opacity-25 text-gray-900 text-sm p-2 rounded">Our expertise ensures your business leverages the latest technology to achieve sustainable growth and success.</p>
             </div>
           </div>
