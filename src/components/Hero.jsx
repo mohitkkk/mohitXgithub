@@ -124,7 +124,7 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="features-section py-10 bg-gray-100 text-gray-900">
+      <section className="features-section py-10 bg-gray-100   text-gray-900">
         <div className="container mx-auto px-6 md:px-12">
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-12">Our Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
