@@ -33,7 +33,7 @@ const Hero = () => {
         headingRef.current,
         { opacity: 0, y: -50 },
         { opacity: 1, y: 0, duration: 1.5 }
-      );
+      );    
 
       const phrases = [
         'transforms ideas into reality.',
@@ -97,7 +97,7 @@ const Hero = () => {
       <FloatingHeader />
       <section className="hero-section h-screen w-screen flex items-center justify-center bg-gray-900 text-white text-center relative overflow-hidden">
         <video
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          className="absolute top-0 left-0 w-full h-full object-cover overflow-hidden"
           src={videoSrc}
           autoPlay
           loop
@@ -106,7 +106,7 @@ const Hero = () => {
         />
         <div className="absolute top-0 left-0 w-full h-full bg-opacity-90 z-1"></div>
         <div className="absolute top-1/2 left-[10%] transform -translate-y-1/2 z-50 flex flex-col items-start justify-center">
-          <h1 ref={headingRef} className="hero-heading text-2xl md:text-6xl font-bold text-white mb-6 md:mb-8">
+          <h1 ref={headingRef} className="hero-heading text-2xl md:text-4xl font-bold text-white mb-6 md:mb-8 ">
             <span className="text-white">LunarEdge </span>
             <span ref={typewriterRef} className="text-blue-300"></span>
           </h1>
@@ -151,7 +151,7 @@ const Hero = () => {
           </div>
         </div>
       </section>
-      <Common />
+      
     </>
   );
 };
