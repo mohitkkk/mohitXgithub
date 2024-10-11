@@ -5,7 +5,7 @@ import amongUsImage1 from '../assets/among-us1.png';
 import amongUsImage2 from '../assets/among-us2.png';
 import amongUsImage3 from '../assets/among-us3.png';
 
-// Registering the Draggable plugin with asda sda
+// Registering the Draggable plugin with GSAP
 gsap.registerPlugin(Draggable);
 
 const FloatingFigure = ({ image, text, figureRefs }) => {
@@ -73,9 +73,16 @@ const FloatingFigure = ({ image, text, figureRefs }) => {
     <div
       ref={figureRef}
       className="floating-figure w-4 h-4 absolute group"
-      style={{ top: `${Math.random() * 20 + 5}%`, left: `${Math.random() * 90 + 5}%` }} // Random initial position
+      style={{
+        top: `${Math.random() * 20 + 5}%`,
+        left: `${Math.random() * 90 + 5}%`,
+      }}
     >
-      <img src={image} alt="Among Us" className="w-full h-full opacity-75 " />
+      <img
+        src={image}
+        alt="Among Us"
+        className="w-full h-full opacity-75"
+      />
       <div className="hidden group-hover:block absolute top-full left-1/2 transform -translate-x-1/2 mt-0 p-2 bg-gray-900 bg-opacity-25 text-white text-xs rounded shadow-lg">
         {text} {/* Display the text when hovered */}
       </div>

@@ -1,0 +1,42 @@
+/* Box.css */
+
+/* Parent container styling */
+.parent {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(4, 150px);
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+  }
+  
+  /* Child div styling */
+  .child {
+    width: 100%;
+    height: 100%;
+    background: rgba(156, 163, 175, 0.5); /* Equivalent to bg-gray-400 with opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  /* Hover effect for child divs */
+  .child:hover {
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Hidden text inside child div, visible on hover */
+  .child span {
+    display: none;
+    position: absolute;
+  }
+  
+  .child:hover span {
+    display: block;
+  }
+  

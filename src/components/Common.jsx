@@ -90,8 +90,8 @@ const Common = () => {
         </div>
         
         <div className="text-center z-20">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">The Page Is Currently</h1>
-          <h1 className="text-4xl md:text-7xl font-bold mb-4">Down For Maintenance</h1>
+          <h1 className="text-3xl lg:text-4xl md:text-6xl font-bold mb-4">The Page Is Currently Down For Maintenance</h1>
+          {/* <h1 className="text-4xl md:text-7xl font-bold mb-4">Down For Maintenance</h1> */}
           <p className="text-lg md:text-2xl mb-8">We are working hard to bring you new features. Stay tuned!</p>
           <a
             href="#_"

@@ -1,26 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import FloatingHeader from './components/FloatingHeader';
 import Hero from './components/Hero';
-import About from './components/About';  // Example additional component
-import Contact from './components/Contact'; // Example additional component
+import About from './components/About';
+import Contact from './components/Contact';
 import Common from './components/Common';
+import Box from './components/Box'
+
+
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
   return (
     <Router>
       <div>
-        {/* Pass isLoading state to FloatingHeader */}
-        <FloatingHeader isLoading={isLoading} />
-
-        {/* Define Routes for different components */}
+        <FloatingHeader isLoading={false} />
         <Routes>
-          <Route path="/" element={<Hero setIsLoading={setIsLoading} />} />
-          <Route path="/about" element={<About />} />  {/* Example About page */}
+          <Route path="/" element={<Hero />} />
+          <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/Common" element={<Common />} /> {/* Example Contact page */}
+          <Route path="/common" element={<Common />} />
+          <Route path="/box" element={<Box />} />
         </Routes>
       </div>
     </Router>
